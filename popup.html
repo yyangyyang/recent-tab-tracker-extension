@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recent Tab Tracker</title>
+    <style>
+      body {
+        width: 320px;
+        padding: 16px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        margin: 0;
+        color: #333;
+      }
+
+      .header h1 {
+        font-size: 18px;
+        margin: 0;
+        color: #2d3748;
+      }
+
+      .header p {
+        font-size: 12px;
+        color: #718096;
+        margin: 4px 0 12px;
+      }
+
+      .tab-info-entry {
+        background: #f8fafc;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .clickable-tab:hover {
+        background: #edf2f7;
+      }
+
+      .tab-title {
+        font-size: 11px;
+        font-weight: 600;
+        color: #2d3748;
+        margin-bottom: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .tab-url {
+        font-size: 11px;
+        color: #4a5568;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .tab-time {
+        font-size: 11px;
+        color: #667eea;
+      }
+
+      .no-tab,
+      .get-started {
+        text-align: center;
+        color: #718096;
+        font-size: 13px;
+        padding: 10px;
+      }
+
+      .section {
+        background: #ededee;
+        border-radius: 8px;
+        padding: 12px;
+        margin-top: 12px;
+      }
+
+      .section-title {
+        font-size: 13px;
+        font-weight: 500;
+        margin-bottom: 8px;
+        color: #2d3748;
+      }
+
+      .input-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 4px;
+      }
+
+      .input-group input {
+        width: 50px;
+        padding: 4px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .btn {
+        padding: 6px 10px;
+        font-size: 12px;
+        border: none;
+        border-radius: 6px;
+        background: #e2e8f0;
+        color: #4a5568;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background: #cbd5e0;
+      }
+
+      .footer {
+        font-size: 10px;
+        color: #718096;
+        text-align: center;
+        margin-top: 14px;
+      }
+
+      .shortcut-info {
+        font-size: 11px;
+        color: #4a5568;
+        line-height: 1.4;
+        margin-top: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Recent Tab Tracker</h1>
+      <p>For quickly revisiting your recently viewed tabs</p>
+      <p>Use <strong>Ctrl + Q</strong> to cycle forward through recent tabs.</p>
+    </div>
+
+    <div id="tab-info">
+      <div class="no-tab">No recent tab activity.</div>
+      <div class="get-started">Click on a tab to get started!</div>
+    </div>
+
+    <hr style="border: none; border-top: 1px solid #cbd5e0; margin: 16px 0" />
+
+    <!-- Clear Button -->
+    <div class="section">
+      <div class="input-group" style="justify-content: space-between">
+        <span style="font-size: 12px">Clear tracking history</span>
+        <button id="clear-history" class="btn">Clear</button>
+      </div>
+    </div>
+
+    <!-- Settings Section -->
+    <div class="section">
+      <div class="section-title">Settings</div>
+      <div class="input-group">
+        <label for="tab-num" style="font-size: 12px"
+          >Tab number in the cycle:</label
+        >
+        <input type="number" id="max-cycle" min="1" max="20" value="5" />
+        <button id="save-max-cycle" class="btn">Save</button>
+      </div>
+      <div class="shortcut-info">
+        Use <strong>Ctrl + Q</strong> to cycle forward through recent tabs.<br />
+      </div>
+      <hr style="border: none; border-top: 1px solid #cbd5e0; margin: 16px 0" />
+      <div class="input-group" style="margin-top: 8px">
+        <label for="max-tabs" style="font-size: 12px">Max Tracked Tabs:</label>
+        <input type="number" id="max-tabs" min="5" max="50" value="20" />
+        <button id="save-max-tabs" class="btn">Save</button>
+      </div>
+    </div>
+
+    <div class="footer">Version: 1.0</div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

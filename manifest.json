@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Recent Tab Tracker",
+  "version": "1.0",
+  "description": "For quickly revisiting your recently viewed tabs",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tab Tracker"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "commands": {
+  "cycle-clicked-tabs": {
+    "suggested_key": {
+      "default": "Ctrl+Q"
+    },
+    "description": "Switch tabs"
+  }
+}
+}
